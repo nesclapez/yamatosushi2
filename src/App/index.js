@@ -1,17 +1,12 @@
 import React from "react";
-import Counter from "../Counter";
 
-import Greetings from "../Greetings";
+import Header from "../Header";
 
 export default function App() {
   return (
-    <article>
-      <Greetings firstName="Bebert" lastName="Lancien" />
-      <Greetings firstName="Popaul" lastName="Lejeune" />
-      <Greetings firstName="Bob" />
-
-      <Counter beginAt={4} />
-      <Counter />
-    </article>
+    <div>
+      <Header title="Homepage" />
+      <article>Main</article>
+    </div>
   );
 }

@@ -22,7 +22,7 @@ export default function Header({ title }) {
   const fullTitle = `${websiteTitle} - ${title}`;
 
   return (
-    <AppBar position="static">
+    <AppBar position="fixed">
       <Toolbar>
         <Avatar src={yamatoLogo} alt={websiteTitle}></Avatar>
         <Typography variant="h6" className={classes.title}>

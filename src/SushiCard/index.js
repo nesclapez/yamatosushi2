@@ -29,10 +29,10 @@ export default function SushiCard({ image, title, description }) {
       <CardMedia className={classes.media} image={image} title={title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="h2">
-          {title}
+          {title || "untitled"}
         </Typography>
         <Typography variant="body2" color="textSecondary" component="p">
-          {description}
+          {description || "undescribed"}
         </Typography>
 
         <QuantityInput quantity={quantity} inc={inc} dec={dec} set={set} />
@@ -51,8 +51,5 @@ SushiCard.propTypes = {
 };
 
 SushiCard.defaultProps = {
-  image:
-    "https://i2.wp.com/www.eatthis.com/wp-content/uploads/2020/07/assorted-sushi.jpg?resize=640%2C360",
-  title: "maki",
-  description: "Ingrédients: bla bla",
+  image: "https://via.placholder.com/400x300",
 };

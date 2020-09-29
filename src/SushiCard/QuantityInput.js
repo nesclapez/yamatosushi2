@@ -16,20 +16,29 @@ function Button({ onClick, label, disabled, Icon }) {
 }
 
 export default function QuantityInput({ quantity, inc, dec, set }) {
-  const { min } = config.get("quantity");
+  const { min, max } = config.get("quantity");
   const handleChange = (event) => set(event.target.value);
+
+  const isInc = quantity < max;
   const isDec = quantity > min;
 
   return (
     <Grid container>
       <Grid item xs={4}>
-        {inc && <Button onClick={() => inc()} label="Ajouter" Icon={AddBox} />}
+        {inc && (
+          <Button
+            onClick={() => inc()}
+            label="Ajouter"
+            Icon={AddBox}
+            disabled={!isInc}
+          />
+        )}
       </Grid>
       <Grid item xs={4}>
         <Input
           name="quantity"
           value={quantity}
-          onchange={handleChange}
+          onChange={handleChange}
           inputProps={{ "aria-label": "quantity" }}
         />
       </Grid>

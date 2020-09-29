@@ -1,20 +1,25 @@
 import React from "react";
-import Grid from "@material-ui/core/Grid";
+import { Grid, CircularProgress } from "@material-ui/core";
+import { isEmpty } from "lodash";
+import { string } from "prop-types";
 
 import SushiCard from "../SushiCard";
-
 import useStyles from "./styles";
+import useSushis from "../useSushis";
 
-import db from "../db.json";
+export default function SushiCardList({ search }) {
+  const classes = useStyles();
 
-export default function SushiCardList() {
-  const classes = useStyles;
+  const { isLoading, error, data: sushis } = useSushis(search);
 
-  const { suchis } = db;
+  if (isLoading) return <CircularProgress color="secondary" />;
+
+  if (error) return "Error!";
 
   return (
     <Grid container spacing={2} className={classes.wrapper}>
-      {suchis.map(({ id, image, title, description }) => (
+      {isEmpty(sushis) && "Pas de sushis"}
+      {sushis.map(({ id, image, title, description }) => (
         <Grid item xs={6} md={3} key={id}>
           <SushiCard image={image} title={title} description={description} />
         </Grid>
@@ -22,3 +27,7 @@ export default function SushiCardList() {
     </Grid>
   );
 }
+
+SushiCardList.propTypes = {
+  search: string,
+};

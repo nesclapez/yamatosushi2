@@ -7,13 +7,13 @@ export const Logo = styled.img`
 
 export const Title = styled.h1`
   display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   padding: 0px;
   vertical-align: center;
 `;
 
 export const Wrapper = styled.header`
-  height: 80x;
+  height: 80px;
   border-bottom: 1px solid grey;
 `;
 

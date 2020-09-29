@@ -28,7 +28,9 @@ export default function SushiCard({ image, title, description }) {
   const classes = useStyles();
 
   //const [quantity, increment, decrement] = useCounter(1);
-  const [quantity, { inc, dec }] = useCounter(1, 10, 1);
+  const [quantity, { inc, dec, set }] = useCounter(1, 10, 1);
+
+  const handleChange = (event) => set(event.target.value);
 
   return (
     <Card className={classes.root}>
@@ -46,6 +48,7 @@ export default function SushiCard({ image, title, description }) {
         <Input
           name="quantity"
           value={quantity}
+          onchange={handleChange}
           inputProps={{ "aria-label": "quantity" }}
         />
         <IconButton aria-label="supprimer" onClick={() => dec()}>

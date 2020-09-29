@@ -14,6 +14,9 @@ export default function App() {
       <Header title="Homepage" />
       <article>
         <SushiCard />
+        <SushiCard />
+        <SushiCard />
+        <SushiCard />
       </article>
     </ThemeProvider>
   );

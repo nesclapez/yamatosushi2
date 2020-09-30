@@ -21,7 +21,7 @@ export default function BasketScreen() {
     <Screen title="Basket">
       <BasketItemList sushis={sushis} removeAt={removeAt} />
       <Button variant="contained" color="primary" onClick={buy}>
-        Primary
+        Remove all
       </Button>
     </Screen>
   );

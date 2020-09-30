@@ -7,7 +7,7 @@ import ListItemSecondaryAction from "@material-ui/core/ListItemSecondaryAction";
 import IconButton from "@material-ui/core/IconButton";
 import Delete from "@material-ui/icons/Delete";
 
-import { arrayOf, number, shape, string, func } from "prop-types";
+import { arrayOf, shape, string, func } from "prop-types";
 
 export default function BasketItemList({ sushis, removeAt }) {
   return (

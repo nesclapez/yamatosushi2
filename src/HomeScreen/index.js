@@ -10,8 +10,18 @@ export default function HomeScreen() {
 
   return (
     <Screen title="Homepage">
-      <TextField variant="outlined" value={search} onChange={handleSearch} />
+      <TextField
+        variant="outlined"
+        value={search}
+        onChange={handleSearch}
+        fullWidth
+      />
       <SushiCardList search={search} />
     </Screen>
   );
 }
+
+// const handleSearch = (event) => {
+//   const q = event.target.value;
+//   if (q.length >= 3) setSearch(q);
+// };

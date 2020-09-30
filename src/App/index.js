@@ -1,26 +1,24 @@
 import React from "react";
-import { CssBaseline, TextField } from "@material-ui/core";
+import { CssBaseline } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
+import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
-import SushiCardList from "../SushiCardList";
-
-import Header from "../Header";
 import theme from "./theme";
-import useStyles from "./styles";
+
+import routes from "./routes";
 
 export default function App() {
-  const classes = useStyles();
-  const [search, setSearch] = React.useState("");
-  const handleSearch = (event) => setSearch(event.target.value);
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Header title="Homepage" />
-      <div className={classes.offset} />
-      <article>
-        <TextField variant="outlined" value={search} onChange={handleSearch} />
-        <SushiCardList search={search} />
-      </article>
+      <BrowserRouter>
+        <Switch>
+          {Object.keys(routes).map((routeName) => {
+            const { path, component } = routes[routeName];
+            return <Route exact path={path} component={component} key={path} />;
+          })}
+        </Switch>
+      </BrowserRouter>
     </ThemeProvider>
   );
 }

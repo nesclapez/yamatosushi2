@@ -6,7 +6,7 @@ import SushiCardList from "../SushiCardList";
 import useQueryStringSearch from "../useQueryStringSearch";
 
 export default function HomeScreen() {
-  const [search, setSearch] = useQueryStringSearch();
+  const [search, setSearch] = useQueryStringSearch("search");
 
   return (
     <Screen title="Homepage">

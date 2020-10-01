@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-//import {string} from "prop-types";
 
 import fullName from "./fullName";
 
